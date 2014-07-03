@@ -411,6 +411,7 @@ def create_filelist(comfastqfiles, receipt):
 			else:
 				r_int=int(resp)
 				receipt.write("--> " + resp + '\n\n')
+				print ''
 				filelist=zip([snames[r_int]],[read1files[r_int]],[read2files[r_int]])
 				break
 	elif len(snames)==1:
