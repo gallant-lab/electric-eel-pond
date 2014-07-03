@@ -154,7 +154,7 @@ Using the <code>-t</code>, <code>-r</code>, and <code>-w</code> flags in the com
 <li>Concatenates orphaned reads.</li>
 <li>Quality filter paired and single-end reads.</li>
 <li>Remove remaining orphaned reads.</li>
-<li>Cleans up directory such that only receipt.txt, <code>*.pe.qc.fq.gz</code>, and <code>*.se.qc.fq.gz</code> remain.</li>
+<li>Cleans up directory such that only receipt.txt, <code>*.pe.qc.fq.gz</code> (paired-end reads), and <code>*.se.qc.fq.gz</code> (single-end reads) remain.  These are the final cleaned reads.</li>
 <li>If <code>-s</code> is called in command, splits paired reads (<code>*.pe.qc.fq.gz</code>) into R1 and R2 files. </li>
 </ul>
 <p>Errors and outputs from each command in the qsub will be written to the receipt.</p>
@@ -245,7 +245,7 @@ Using the <code>-t</code>, <code>-r</code>, and <code>-w</code> flags in the com
 <li>
 <p>Writing the qsub and submitting the job</p>
 
-<p>At this point, Step 2 uses the number of threads, required memory, and walltime arguments along with the confirmed left and right files to use to write the qsub script.  If single-ended reads are being used, they are treated as left arguments in Trinity.  If "-n" is used in the command, the Trinity argument " --normalize_reads" is added.  All output from Trinity is written to the receipt.  The .qsub file is saved in the output directory.</p>
+<p>At this point, Step 2 uses the number of threads, required memory, and walltime arguments along with the confirmed left and right files to use to write the qsub script.  If single-ended reads are being used, they are treated as left arguments in Trinity.  If "-n" is used in the command, the Trinity argument " --normalize_reads" is added.  All output from Trinity is written to the receipt.  The .qsub file is saved in the output directory.  The final assembly is saved in Trinity.fasta.</p>
 </li>
 </ol><h3>
 <a name="a-few-notes-about-trinity" class="anchor" href="#a-few-notes-about-trinity"><span class="octicon octicon-link"></span></a>A few notes about Trinity:</h3>
@@ -449,7 +449,7 @@ The JobID will be the same name as the output directory.</p>
 <h3>
 <a name="resources-2" class="anchor" href="#resources-2"><span class="octicon octicon-link"></span></a>Resources:</h3>
 
-<p><a href="https://wiki.hpcc.msu.edu/display/Bioinfo/Using+mpiBLAST" target="_blank">Hpcc tutorial: Using mpiBLAST</a></p>
+<p><a href="https://wiki.hpcc.msu.edu/display/Bioinfo/Using+mpiBLAST" target="_blank">HPCC tutorial: Using mpiBLAST</a></p>
 
 <p><a href="http://www.ncbi.nlm.nih.gov/BLAST/blast_program.shtml" target="_blank">BLAST programs</a></p>
 
