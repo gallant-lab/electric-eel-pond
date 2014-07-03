@@ -90,7 +90,7 @@
 <p>Split paired reads into R1 and R2 files after quality filtering.</p>
 </li>
 <li>
-<p><code>-d</code>, <code>--inputdir</code> &lt;path&gt;</p>
+<p><code>-i</code>, <code>--inputdir</code> &lt;path&gt;</p>
 
 <p>Name of input directory where files are located.</p>
 </li>
@@ -236,9 +236,9 @@ Using the <code>-t</code>, <code>-r</code>, and <code>-w</code> flags in the com
 <li>
 <p>Read recognition and sorting</p>
 
-<p>Step 2 expects the reads to be separated into R1, R2 (each ending in ".fastq.gz.pe.qc.fq.gz"), and single-ended reads (ending in ".fastq.gz.se.qc.fq.gz").  If using Electric Eelpond Step 1 to quality filter, use of the "-s" flag in the command will return these exact files.</p>
+<p>Step 2 expects the reads to be separated into R1, R2 (each ending in ".fastq.gz.pe.qc.fq.gz"), and single-ended reads (ending in ".fastq.gz.se.qc.fq.gz").  If using Electric Eelpond Step 1 to quality filter, use of the "-s" flag in the Step 1 command will return these exact files.</p>
 
-<p>If the "-i" is used in the command, Step 2 will sort only those files into left, right, and single-ended reads.  If the "-d" is used instead, Step 2 will traverse all subdirectories within the input directories and find all files ending with ".fastq.gz.pe.qc.fq.gz" and ".fastq.gz.se.qc.fq.gz" and sort them into left, right, and single-ended files.  </p>
+<p>If the "-i" is used in the command, Step 2 will sort only those input files into left, right, and single-ended reads.  If the "-d" is used instead, Step 2 will traverse all subdirectories within the input directories and find all files ending with ".fastq.gz.pe.qc.fq.gz" and ".fastq.gz.se.qc.fq.gz" and sort them into left, right, and single-ended files.  </p>
 
 <p>Upon completion of the sorting, Step 2 will prompt the user for confirmation of correct sorting, as well as prompt for confirmation for use of single-ended files in Trinity.  When the user confirms, the names and directories of all files used are written to the receipt, and memory estimation commences if necessary.  The user will be given a recommended amount of memory to use in Gb, based on the rule: 1Gb per 1 million reads.  The choice of required memory is written to the receipt.</p>
 </li>
@@ -322,7 +322,7 @@ Using the <code>-t</code>, <code>-r</code>, and <code>-w</code> flags in the com
 
 <p>Electric EelPond Step 3 takes in two input files, a left and a right read (from step 1), and performs abundance estimation using a reference database file (Trinity.fasta from step 2).</p>
 
-<p>Output is placed in the output directory. Output from the program is placed in receipt.txt.</p>
+<p>Generated output files are placed in the output directory. Output from the program is placed in receipt.txt.</p>
 
 <p>Step 3 prompts for user confirmation of the input arguments before submitting to the HPCC.</p>
 
@@ -402,7 +402,7 @@ Using the <code>-t</code>, <code>-r</code>, and <code>-w</code> flags in the com
 </ul><h3>
 <a name="the-process" class="anchor" href="#the-process"><span class="octicon octicon-link"></span></a>The Process:</h3>
 
-<p>Electric Eelpond calls the mpiBLAST exec command to BLAST the data against a chosen database.  mpiBLAST takes advantage of parallel computing to process fragments of a database simultaneously using multiple nodes.  Before Electric Eelpond Step 4 can be run, the user must fragment the database into a chosen directory and create a .ncbirc file in their home directory.</p>
+<p>Electric Eelpond calls the mpiBLAST exec command to BLAST the data against a chosen database.  mpiBLAST takes advantage of parallel computing to process fragments of a database simultaneously using multiple nodes.  Before Electric Eelpond Step 4 can be run, the user must fragment the database into a chosen directory and create a .ncbirc file in his/her home directory.</p>
 
 <h4>
 <a name="fragmenting-the-database" class="anchor" href="#fragmenting-the-database"><span class="octicon octicon-link"></span></a>Fragmenting the Database:</h4>
@@ -432,13 +432,13 @@ Shared=/path/to/fragments/directory
 Local=/path/to/temp/directory
 </code></pre>
 
-<p>Check that BLASTDB and SHARED are both the path to the fragments created using the above mpiformatdb command.  LOCAL will be created in the mpiBLAST exec command and deleted after finishing.  It is recommended that the user stores the LOCAL (temp) directory in /mnt/scratch for easy file managment.</p>
+<p>Check that BLASTDB and SHARED are both the path to the fragments created using the above mpiformatdb command.  LOCAL will be created in the mpiBLAST exec command and deleted after finishing.  It is recommended that the user stores the LOCAL (temporary) directory in /mnt/scratch for easy file managment.</p>
 
 <h4>
 <a name="running-electric-eelpond-step-4" class="anchor" href="#running-electric-eelpond-step-4"><span class="octicon octicon-link"></span></a>Running Electric Eelpond Step 4:</h4>
 
 <p>After the database has been fragmented into the [mpiBLAST] Shared directory and the .ncbirc file has been created in the home directory, Electric Eelpond Step 4 can commence.  Request at least (2 + number of database fragments) nodes, and at least (2 + number of database fragments) Gb memory.  Request appropriately more memory for larger databases.<br>
-When inputting the <code>-d</code> argument, enter only the root name of your database, not the path name.  The .ncbirc file, if formatted correctly, will tell mpiBLAST exactly how to access the fragmented database.
+When inputting the <code>-d</code> argument, enter only the root name of your database, not the entire path name.  The .ncbirc file, if formatted correctly, will tell mpiBLAST exactly how to access the fragmented database.
 The JobID will be the same name as the output directory.</p>
 
 <h4>
