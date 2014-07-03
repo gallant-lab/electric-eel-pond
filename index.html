@@ -83,27 +83,27 @@ Display help message and exit.</p></li>
 <p>Split paired reads into R1 and R2 files after quality filtering.</p>
 </li>
 <li>
-<p><code>-d</code>, <code>--inputdir &lt;path&gt;</code></p>
+<p><code>-d</code>, <code>--inputdir</code> &lt;path&gt;</p>
 
 <p>Name of input directory where files are located.</p>
 </li>
 <li>
-<p><code>-o</code>, <code>--outputdir &lt;path&gt;</code></p>
+<p><code>-o</code>, <code>--outputdir</code> &lt;path&gt;</p>
 
 <p>Name of output directory.  Does not have to exist prior to runtime.</p>
 </li>
 <li>
-<p><code>-t</code>, <code>--threads &lt;int&gt;</code> </p>
+<p><code>-t</code>, <code>--threads</code> &lt;int&gt;</p>
 
 <p>Number of threads requested.  Enter as a digit. Incorrect syntax will result in an error message followed by termination of the program.  Default is 1 thread.</p>
 </li>
 <li>
-<p><code>-r</code>, <code>--reqmem &lt;int&gt;</code></p>
+<p><code>-r</code>, <code>--reqmem</code> &lt;int&gt;</p>
 
 <p>Gb of memory requested.  Enter as a digit. Incorrect syntax will result in an error message followed by termination of the program. Default is 12Gb.</p>
 </li>
 <li>
-<p><code>-w</code>, <code>--walltime &lt;(h)h:mm:ss&gt;</code></p>
+<p><code>-w</code>, <code>--walltime</code> &lt;(h)h:mm:ss&gt;</p>
 
 <p>Estimated time required for job.  Enter as "(h)h:mm:ss".  Incorrect syntax will result in an error message followed by termination of the program. Default is 4:00:00.</p>
 </li>
@@ -167,7 +167,7 @@ Using the <code>-t</code>, <code>-r</code>, and <code>-w</code> flags in the com
 
 <ul>
 <li>
-<p>-h, --help</p>
+<p>-h, <code>--help</code></p>
 
 <p>Display help message and exit.</p>
 </li>
@@ -177,32 +177,32 @@ Using the <code>-t</code>, <code>-r</code>, and <code>-w</code> flags in the com
 <p>Applies normalization to reads before running Trinity.</p>
 </li>
 <li>
-<p><code>-d</code>, <code>--inputdirs &lt;path(s)&gt;</code></p>
+<p><code>-d</code>, <code>--inputdirs</code> &lt;path(s)&gt;</p>
 
 <p>List of names of input directories to traverse.  At least one input directory required.  Only valid in absence of <code>-i</code>.</p>
 </li>
 <li>
-<p><code>-i</code>, <code>--inputfiles &lt;path(s)&gt;</code></p>
+<p><code>-i</code>, <code>--inputfiles</code> &lt;path(s)&gt;</p>
 
 <p>List of names of input files.  At least one input file required. Only valid in absence of <code>-d</code>.</p>
 </li>
 <li>
-<p><code>-o</code>, <code>--outputdir &lt;path&gt;</code></p>
+<p><code>-o</code>, <code>--outputdir</code> &lt;path&gt;</p>
 
 <p>Name of output directory.  Does not have to be created prior to runtime.</p>
 </li>
 <li>
-<p><code>-t</code>, <code>--threads &lt;int&gt;</code></p>
+<p><code>-t</code>, <code>--threads</code> &lt;int&gt;</p>
 
 <p>Number of threads requested.  Enter as a digit. Incorrect syntax will result in an error message followed by termination of the program.</p>
 </li>
 <li>
-<p><code>-r</code>, <code>--reqmem &lt;int&gt;</code></p>
+<p><code>-r</code>, <code>--reqmem</code> &lt;int&gt;</p>
 
 <p>Gb of memory requested.  Enter as a digit. Incorrect syntax will result in an error message followed by termination of the program.</p>
 </li>
 <li>
-<p><code>-w</code>, <code>--walltime &lt;(h)h:mm:ss&gt;</code></p>
+<p><code>-w</code>, <code>--walltime</code> &lt;(h)h:mm:ss&gt;</p>
 
 <p>Estimated time required for job.  Enter as "(h)h:mm:ss".  Incorrect syntax will result in an error message followed by termination of the program. Default is 20:00:00.</p>
 </li>
@@ -241,7 +241,14 @@ Using the <code>-t</code>, <code>-r</code>, and <code>-w</code> flags in the com
 
 <p>Since Trinity modifies the original files in the original directory it is crucial to only run one job per input directory at a time.  If a job times out or fails it can be restarted provided the user has not deleted any data Trinity has produced.</p>
 
-<p><a name="step3"></a></p>
+<h4>
+<a name="resources" class="anchor" href="#resources"><span class="octicon octicon-link"></span></a>Resources:</h4>
+
+<ul>
+<li>
+<a href="http://trinityrnaseq.sourceforge.net">Trinity home page</a>
+</li>
+</ul><p><a name="step3"></a></p>
 
 <h2>
 <a name="step-3--rsem-quantification" class="anchor" href="#step-3--rsem-quantification"><span class="octicon octicon-link"></span></a>Step 3- RSEM quantification</h2>
@@ -256,42 +263,42 @@ Using the <code>-t</code>, <code>-r</code>, and <code>-w</code> flags in the com
 
 <ul>
 <li>
-<p><code>-h</code>, --help</p>
+<p><code>-h</code>, <code>--help</code></p>
 
 <p>Display help message and exit.</p>
 </li>
 <li>
-<p><code>--ref</code>, <code>&lt;filepath&gt;</code></p>
+<p><code>--ref</code> &lt;filepath&gt;</p>
 
 <p>Path to reference file (.fasta).</p>
 </li>
 <li>
-<p><code>--left</code>, <code>&lt;filepath&gt;</code></p>
+<p><code>--left</code> &lt;filepath&gt;</p>
 
 <p>Path to left read file (R1).</p>
 </li>
 <li>
-<p><code>--right</code>, <code>&lt;filepath&gt;</code></p>
+<p><code>--right</code> &lt;filepath&gt;</p>
 
 <p>Path to right read file (R2).</p>
 </li>
 <li>
-<p><code>-o</code>, <code>--outputdir &lt;path&gt;</code></p>
+<p><code>-o</code>, <code>--outputdir</code> &lt;path&gt;</p>
 
 <p>Name of output directory.  Does not have to be created prior to runtime.</p>
 </li>
 <li>
-<p><code>-t</code>, <code>--threads &lt;int&gt;</code></p>
+<p><code>-t</code>, <code>--threads</code> &lt;int&gt;</p>
 
 <p>Number of threads requested.  Enter as a digit. Incorrect syntax will result in an error message followed by termination of the program.</p>
 </li>
 <li>
-<p><code>-r</code>, <code>--reqmem &lt;int&gt;</code></p>
+<p><code>-r</code>, <code>--reqmem</code> &lt;int&gt;</p>
 
 <p>Gb of memory requested.  Enter as a digit. Incorrect syntax will result in an error message followed by termination of the program.</p>
 </li>
 <li>
-<p><code>-w</code>, <code>--walltime &lt;(h)h:mm:ss&gt;</code></p>
+<p><code>-w</code>, <code>--walltime</code> &lt;(h)h:mm:ss&gt;</p>
 
 <p>Estimated time required for job.  Enter as "(h)h:mm:ss".  Incorrect syntax will result in an error message followed by termination of the program. Default is 20:00:00.</p>
 </li>
@@ -305,7 +312,7 @@ Using the <code>-t</code>, <code>-r</code>, and <code>-w</code> flags in the com
 <p>Step 3 prompts for user confirmation of the input arguments before submitting to the HPCC.</p>
 
 <h4>
-<a name="references" class="anchor" href="#references"><span class="octicon octicon-link"></span></a>References:</h4>
+<a name="resources-1" class="anchor" href="#resources-1"><span class="octicon octicon-link"></span></a>Resources:</h4>
 
 <ul>
 <li>
@@ -321,12 +328,12 @@ Using the <code>-t</code>, <code>-r</code>, and <code>-w</code> flags in the com
 
 <ul>
 <li>
-<p><code>-h</code>, --help</p>
+<p><code>-h</code>, <code>--help</code></p>
 
 <p>Display help message and exit.</p>
 </li>
 <li>
-<p><code>-b</code> BLASTTYPE, <code>--blasttype</code> BLASTTYPE</p>
+<p><code>-b</code>, <code>--blasttype</code> &lt;string&gt;</p>
 
 <p>Type of blast to perform.  Choose from:</p>
 
@@ -339,37 +346,37 @@ Using the <code>-t</code>, <code>-r</code>, and <code>-w</code> flags in the com
 </ul>
 </li>
 <li>
-<p><code>-i</code> INPUT, <code>--input</code> INPUT</p>
+<p><code>-i</code>, <code>--input</code> &lt;filepath&gt;</p>
 
 <p>Name of input query to search against database.  Include entire path in argument.</p>
 </li>
 <li>
-<p><code>-d</code> DATABASE, <code>--database</code> DATABASE</p>
+<p><code>-d</code>, <code>--database</code> &lt;string&gt;</p>
 
-<p>Name of database.</p>
+<p>Name of database. Do not include path.</p>
 </li>
 <li>
-<p><code>-o</code> OUTPUTDIR, <code>--outputdir</code> OUTPUTDIR</p>
+<p><code>-o</code>, <code>--outputdir</code> &lt;path&gt;</p>
 
 <p>Name of output directory.  Does not have to be created prior to runtime.</p>
 </li>
 <li>
-<p><code>-t</code> THREADS, <code>--threads</code> THREADS</p>
+<p><code>-t</code>, <code>--threads</code> &lt;int&gt;</p>
 
 <p>Number of threads requested.  Enter as a digit. Incorrect syntax will result in an error message followed by termination of the program.</p>
 </li>
 <li>
-<p><code>-r</code> REQMEM, <code>--reqmem</code> REQMEM</p>
+<p><code>-r</code>, <code>--reqmem</code> &lt;int&gt;</p>
 
 <p>Gb of memory requested.  Enter as a digit. Incorrect syntax will result in an error message followed by termination of the program.</p>
 </li>
 <li>
-<p><code>-w</code> WALLTIME, <code>--walltime</code> WALLTIME</p>
+<p><code>-w</code>, <code>--walltime</code> &lt;(h)h:mm:ss&gt;</p>
 
 <p>Estimated time required for job.  Enter as "(h)h:mm:ss".  Incorrect syntax will result in an error message followed by termination of the program. Default is 20:00:00.</p>
 </li>
 <li>
-<p><code>-n</code> NODES, <code>--nodes</code> NODES</p>
+<p><code>-n</code>, <code>--nodes</code> &lt;int&gt;</p>
 
 <p>Number of nodes requested.</p>
 </li>
@@ -421,11 +428,13 @@ The JobID will be the same name as the output directory.</p>
 <p>After mpiBLAST finishes, the output directory should contain a time.txt, results.txt, error.txt, and output.txt in addition to the BLAST.qsub and receipt.txt.  The results.txt file contains the blast hit data.  output.txt contains information about the resources requested and required.</p>
 
 <h3>
-<a name="resources" class="anchor" href="#resources"><span class="octicon octicon-link"></span></a>Resources:</h3>
+<a name="resources-2" class="anchor" href="#resources-2"><span class="octicon octicon-link"></span></a>Resources:</h3>
 
-<p><a href="https://wiki.hpcc.msu.edu/display/Bioinfo/Using+mpiBLAST">Hpcc tutorial: Using mpiBLAST</a>
-<a href="http://www.ncbi.nlm.nih.gov/BLAST/blast_program.shtml">BLAST programs</a>
-<a href="http://blast.ncbi.nlm.nih.gov/Blast.cgi">BLAST website</a></p>
+<p><a href="https://wiki.hpcc.msu.edu/display/Bioinfo/Using+mpiBLAST">Hpcc tutorial: Using mpiBLAST</a></p>
+
+<p><a href="http://www.ncbi.nlm.nih.gov/BLAST/blast_program.shtml">BLAST programs</a></p>
+
+<p><a href="http://blast.ncbi.nlm.nih.gov/Blast.cgi">BLAST website</a></p>
         </article>
       </div>
     </div>
